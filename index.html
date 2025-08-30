@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dog Sitter</title>
+  </head>
+  <body class="bg-gray-100">
+
+<!-- Header / Navigation -->
+<header class="fixed top-0 left-0 z-20 w-full shadow-md bg-tra bg-opacity-80 backdrop-blur-lg">
+  <nav class="flex items-center justify-between p-4 mx-auto max-w-7xl">
+    <!-- Logo / Home Button with Dog House Icon -->
+    <div class="flex items-center space-x-3"> <!-- Added wrapper for logo and home icon -->
+      <!-- Home Button (Dog House Icon) -->
+      <a href="#" class="text-gray-400 hover:text-blue-500">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9l9-7 9 7v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 22V12h6v10"></path>
+        </svg>
+      </a>
+      <!-- Logo -->
+      <div class="text-2xl font-bold text-gray-400">Dog Sitter</div>
+    </div>
+
+    <!-- Hamburger Menu (hidden on larger screens) -->
+    <div class="block lg:hidden">
+      <button id="hamburger-icon"  class="text-gray-800">
+        <svg class="w-8 h-8 hover:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Nav Links (visible on large screens, hidden on small) -->
+    <div class="hidden space-x-6 lg:flex">
+      <a href="#dog-walking" class="text-gray-400 hover:text-blue-500">Dog Walking</a>
+      <a href="#dog-overnight" class="text-gray-400 hover:text-blue-500">Dog Overnight</a>
+      <a href="#contact" class="text-gray-400 hover:text-blue-500">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu (hidden by default) -->
+  <div id="mobile-menu" class="hidden p-4 transition-all duration-300 ease-in-out rounded-lg shadow-md bg-black/70 backdrop-blur-md lg:hidden">
+  <a href="#dog-walking" class="block py-2 text-white transition-colors duration-200 hover:text-blue-400">Dog Walking</a>
+  <a href="#dog-overnight" class="block py-2 text-white transition-colors duration-200 hover:text-blue-400">Dog Overnight</a>
+  <a href="#contact" class="block py-2 text-white transition-colors duration-200 hover:text-blue-400">Contact</a>
+</div>
+</header>
+
+  <!-- Parallax Background -->
+  <div class="fixed inset-0 bg-[url('/assets/hero-dogs.jpg')] bg-cover bg-center bg-fixed z-0 opacity-70"></div>
+  <!-- Hero Section -->
+  <section id="hero-section" class="relative z-10 flex flex-col items-center justify-center min-h-screen text-center text-white bg-black/50">
+    <h1 class="text-5xl font-bold">Your Trusted Dog Sitter</h1>
+    <p class="mt-4 text-xl">Providing the best care for your furry friends while you're away!</p>
+    <a href="#dog-walking" class="px-6 py-3 mt-6 text-lg text-white transition duration-300 bg-blue-600 rounded-full hover:bg-blue-700">Learn More</a>
+  </section>
+
+<!-- Dog Walking Section with Built-In Parallax Background -->
+<section id="dog-walking" class="relative z-10 flex flex-col items-center justify-center min-h-screen text-center text-white bg-fixed bg-center bg-cover" style="background-image: url('/assets/walk-dog.jpg');">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/50"></div>
+  <!-- Content -->
+  <div class="relative z-10 max-w-3xl px-6">
+    <h2 class="text-5xl font-bold">Dog Walking</h2>
+    <p class="mt-4 text-xl">
+      Whether it’s a quick potty break or an hour-long adventure, we’re here to make sure your pup gets the attention and exercise they crave — even when you're busy.
+    </p>
+    <a href="#contact" class="inline-block px-6 py-3 mt-6 text-lg text-white transition duration-300 bg-blue-600 rounded-full hover:bg-blue-700">
+      Book a Walk
+    </a>
+  </div>
+</section>
+
+  <!-- Dog Overnight Care Section with Parallax Background -->
+<section id="dog-overnight" class="relative z-10 flex flex-col items-center justify-center min-h-screen text-center text-white bg-fixed bg-center bg-cover" style="background-image: url('/assets/sleeping-dog.jpg');">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/50"></div>
+  <!-- Content -->
+  <div class="relative z-10 max-w-3xl px-6">
+    <h2 class="text-5xl font-bold">Overnight Dog Care</h2>
+    <p class="mt-4 text-xl">
+      Heading out of town? We offer loving overnight care in your home or ours — so your dog feels secure, relaxed, and never alone. Whether it's one night or a week away, your pup is in good hands.
+    </p>
+    <a href="#contact" class="inline-block px-6 py-3 mt-6 text-lg text-white transition duration-300 bg-blue-600 rounded-full hover:bg-blue-700">
+      Schedule a Stay
+    </a>
+  </div>
+</section>
+
+  <!-- Contact Section with Parallax Background -->
+<section id="contact" class="relative z-10 flex items-center justify-center min-h-screen text-white bg-fixed bg-center bg-cover" style="background-image: url('/assets/staring-dogs.jpg');">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/50"></div>
+  <!-- Content Wrapper -->
+  <div class="relative z-10 w-full max-w-5xl px-6 py-12 text-center">
+    <h2 class="mb-4 text-5xl font-bold">Get in Touch</h2>
+    <p class="mb-10 text-xl">Have questions or ready to book? We’d love to hear from you!</p>
+
+    <div class="grid items-start grid-cols-1 gap-8 text-left md:grid-cols-2">
+      <!-- Contact Info -->
+      <div class="space-y-6">
+        <div class="flex items-center space-x-4">
+          <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M16 8c0-2.21-1.79-4-4-4S8 5.79 8 8s1.79 4 4 4 4-1.79 4-4z" />
+            <path d="M12 14c-4.418 0-8 1.79-8 4v2h16v-2c0-2.21-3.582-4-8-4z" />
+          </svg>
+          <span>Email: <a href="mailto:contact@dogsitters.com" class="underline hover:text-blue-300">contact@dogsitters.com</a></span>
+        </div>
+        <div class="flex items-center space-x-4">
+          <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M3 5h2l3.6 7.59-1.35 2.44A1 1 0 008 17h10v-2H8.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45a1 1 0 00.92-.61l3.24-7.24A.998.998 0 0019 4H6.21l-.94-2H1v2h2l3.6 7.59L5.25 13A1 1 0 006 15h12v2H6a2 2 0 01-2-2v-1.42L3 5z" />
+          </svg>
+          <span>Phone: <a href="tel:+1234567890" class="underline hover:text-blue-300">(123) 456-7890</a></span>
+        </div>
+        <div class="flex items-center space-x-4">
+          <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M17.657 16.657L13.414 12.414a4 4 0 00-5.657 0L6 14.172V4a1 1 0 00-2 0v16a1 1 0 001 1h16a1 1 0 000-2H9.828l1.758-1.757a2 2 0 012.828 0l4.243 4.243a1 1 0 001.414-1.414z" />
+          </svg>
+          <span>Location: City, Province</span>
+        </div>
+      </div>
+      <!-- Transparent Contact Form -->
+      <form action="https://formspree.io/f/your-form-id" method="POST" class="p-8 space-y-6 shadow-md backdrop-blur-sm bg-white/10 rounded-xl">
+        <div>
+          <label for="name" class="block mb-1 text-sm font-semibold">Your Name</label>
+          <input type="text" name="name" id="name" required class="w-full px-4 py-2 text-black placeholder-gray-600 rounded bg-white/80 focus:outline-none">
+        </div>
+        <div>
+          <label for="email" class="block mb-1 text-sm font-semibold">Email</label>
+          <input type="email" name="email" id="email" required class="w-full px-4 py-2 text-black placeholder-gray-600 rounded bg-white/80 focus:outline-none">
+        </div>
+        <div>
+          <label for="message" class="block mb-1 text-sm font-semibold">Message</label>
+          <textarea name="message" id="message" rows="4" required class="w-full px-4 py-2 text-black placeholder-gray-600 rounded bg-white/80 focus:outline-none"></textarea>
+        </div>
+        <button type="submit" class="w-full px-6 py-3 text-white transition duration-300 bg-blue-600 rounded-full hover:bg-blue-700">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer Section -->
+<footer class="relative z-10 py-10 text-white bg-gray-800 ">
+  <div class="grid max-w-6xl grid-cols-1 gap-8 px-6 mx-auto text-center md:grid-cols-2 lg:grid-cols-3 md:text-left">
+    <!-- About Section -->
+    <div>
+      <h3 class="mb-3 text-2xl font-bold">Dog Sitter</h3>
+      <p class="text-sm text-gray-300">
+        Reliable care for your furry friends. Dog walking, overnight stays, and more — all with love and trust.
+      </p>
+    </div>
+    <!-- Hours of Operation -->
+    <div>
+      <h4 class="mb-3 text-xl font-semibold">Hours of Operation</h4>
+      <ul class="space-y-1 text-sm text-gray-200">
+        <li>Mon–Fri: 8:00 AM – 8:00 PM</li>
+        <li>Saturday: 9:00 AM – 6:00 PM</li>
+        <li>Sunday: 10:00 AM – 4:00 PM</li>
+      </ul>
+    </div>
+    <!-- Quick Links -->
+    <div>
+      <h4 class="mb-3 text-xl font-semibold">Quick Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#dog-walking" class="text-gray-300 hover:underline hover:text-white">Dog Walking</a></li>
+        <li><a href="#dog-overnight" class="text-gray-300 hover:underline hover:text-white">Overnight Care</a></li>
+        <li><a href="#contact" class="text-gray-300 hover:underline hover:text-white">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Bottom Note -->
+  <div class="mt-10 text-sm text-center text-gray-400">
+    © 2025 Dog Sitter. All rights reserved.
+  </div>
+</footer>
+    
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -8,7 +8,7 @@ A modern, responsive one-page HTML template designed for dog lovers and pet care
 
 **Live Preview:** [https://ahtml-dog-sitter.netlify.app/](https://ahtml-dog-sitter.netlify.app/)
 
-![Dog Sitter Screenshot](/dist/assets/dog-sitter-screenshot.png)
+![Dog Sitter Screenshot](/public/assets/dog-sitter-screenshot.png)
 
 ---
 
@@ -36,10 +36,12 @@ A modern, responsive one-page HTML template designed for dog lovers and pet care
 
 ## 🛠️ Setup Instructions
 
-1. **Unzip** the downloaded template folder.  
-2. **Open a terminal** and navigate to the developer folder:
+1. **Unzip** the downloaded template folder.
+
+2. **Open a terminal** and navigate to the project folder:
    ```bash
-   cd dog-sitter
+   cd dog-sitter-download
+
 3. **Install dependencies**
    ```bash
    npm install
@@ -49,7 +51,7 @@ A modern, responsive one-page HTML template designed for dog lovers and pet care
    npm run dev
    The site will open automatically at http://localhost:5173 (or a similar port).
 
-5. **Build for production**
+5. **Optional build for production**
    ```bash
    npm run build
    This will generate a dist/ folder with optimized, production-ready files.
@@ -65,8 +67,8 @@ Dog-Sitter-Template/
 ├── public/
 │   └── assets/             # Images and media files
 ├── src/                    # CSS and JavaScript source files
-├── for-developers/         # Vite source version
-└── for-non-developers/     # Ready-to-upload static version
+├── main.js
+└── style.css
 
 ## 📄 License
 

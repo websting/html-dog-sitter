@@ -1,6 +1,6 @@
 # 🐕 Dog Sitter Template
 
-A responsive one-page HTML template designed for dog lovers who want to promote their dog-sitting services online.
+A modern, responsive one-page HTML template designed for dog lovers and pet care professionals who want to promote their dog-sitting services online with style.
 
 ---
 
@@ -8,66 +8,79 @@ A responsive one-page HTML template designed for dog lovers who want to promote 
 
 **Live Preview:** [https://ahtml-dog-sitter.netlify.app/](https://ahtml-dog-sitter.netlify.app/)
 
-![Dog Sitter Screenshot](/for-non-developers/assets/dog-sitter-screenshot.png)
+![Dog Sitter Screenshot](/dist/assets/dog-sitter-screenshot.png)
 
 ---
 
 ## 🚀 Features
 
-- Smooth scroll and responsive layout
-- Tailwind CSS 4.x styling
-- Parallax scroll effects
-- Stylish hero section with call-to-action buttons
-- High-impact backgrounds for better conversion
-- Contact form (non-functional by default)
-- Mobile hamburger menu
-- Easy to customize for your brand
+- 🐾 Smooth scrolling and fully responsive layout
+- 💨 Styled with **Tailwind CSS 4.x**
+- 🌅 Parallax scroll effects for visual appeal
+- 🎯 Modern hero section with clear call-to-action buttons
+- 🐶 High-impact backgrounds for better conversions
+- 💌 Contact form design *(non-functional by default)*
+- 📱 Mobile hamburger menu with smooth transitions
+- 🛠️ Easy to customize and adapt to your brand
 
 ---
 
 ## 🧱 Tech Stack
 
-- HTML5
-- Tailwind CSS
-- JavaScript
-- High-resolution photos from Unsplash
+- **HTML5**
+- **Tailwind CSS**
+- **JavaScript**
+- **Unsplash** high-resolution photos
 
 ---
 
 ## 🛠️ Setup Instructions
 
-### For Non-Developers (Static Version in `for-non-developers/`)
-
-1. **Unzip** the template folder.
-2. Upload the entire contents of the `for-non-developers/` folder to your web host or server.
-   - After upload, visit your domain — the site should display correctly.
-3. To preview locally:
-   - Use a local server (e.g., right-click `index.html` in VS Code and select **"Open with Live Server"**).
-   - ⚠️ Don’t double-click `index.html` directly — some features won’t work due to browser security rules.
-4. - You can edit text, images, and layout by opening `index.html` in a code editor.
-
-> 🔧 Want to customize interactivity or layout more deeply? Use the Developer version below.
-
----
-
-### For Developers (Vite Source Version in `for-developers/`)
-
-1. **Unzip** the template folder.
-2. Open a terminal and navigate to the developer version:
+1. **Unzip** the downloaded template folder.  
+2. **Open a terminal** and navigate to the developer folder:
    ```bash
-   cd for-developers
-3. npm install
-4. npm run dev
+   cd dog-sitter
+3. **Install dependencies**
+   ```bash
+   npm install
 
-# Folder Structure
+4. **Start the development server**
+   ```bash
+   npm run dev
+   The site will open automatically at http://localhost:5173 (or a similar port).
 
-index.html                # Main landing page
-/public/assets/           # Images and media files
-/src/                     # CSS and JavaScript source files
-for-non-developers/       # Ready-to-upload static version
-for-developers/           # Vite source version
+5. **Build for production**
+   ```bash
+   npm run build
+   This will generate a dist/ folder with optimized, production-ready files.
+
+## 💡 Note:
+The contact form is static and does not collect messages by default.
+You can integrate it with Google Sheets, Netlify Forms, or your own backend if needed.
+
+## 📁 Folder Structure Overview
+
+Dog-Sitter-Template/
+├── index.html              # Main landing page
+├── public/
+│   └── assets/             # Images and media files
+├── src/                    # CSS and JavaScript source files
+├── for-developers/         # Vite source version
+└── for-non-developers/     # Ready-to-upload static version
 
 ## 📄 License
 
-This template is licensed under a Commercial Use License
-You may use and modify it for personal or client projects, but resale and redistribution are not allowed.
+This template is provided under a Commercial Use License.
+You may use and modify it for personal or client projects.
+Resale, redistribution, or inclusion in other template bundles is not permitted.
+
+### 👍 Credits
+
+Designed and developed by AH for simpleDesigns
+Placeholder images: Unsplash https://unsplash.com/
+Image storage: Cloudinary https://cloudinary.com/
+Icons: Font Awesome & Boxicons
+https://fontawesome.com/
+https://boxicons.com/
+
+Designed and developed by AH for simpleDesigns — enjoy building your next project! 🐕

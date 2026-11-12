@@ -1,6 +1,6 @@
-# 🐕 Dog Sitter Template
+# 🐕 Dog Sitter — Modern Pet Care Website Template
 
-A modern, responsive one-page HTML template designed for dog lovers and pet care professionals who want to promote their dog-sitting services online with style.
+A modern, responsive one-page HTML template built with **Vite** and **Tailwind CSS**, designed for dog walkers, pet sitters, and doggy daycare businesses who want to showcase their services online.
 
 ---
 
@@ -8,29 +8,27 @@ A modern, responsive one-page HTML template designed for dog lovers and pet care
 
 **Live Preview:** [https://ahtml-dog-sitter.netlify.app/](https://ahtml-dog-sitter.netlify.app/)
 
-![Dog Sitter Screenshot](/public/assets/dog-sitter-screenshot.png)
+![Dog Sitter Template Preview](./public/assets/dog-sitter-screenshot.png)
 
 ---
 
 ## 🚀 Features
 
-- 🐾 Smooth scrolling and fully responsive layout
-- 💨 Styled with **Tailwind CSS 4.x**
-- 🌅 Parallax scroll effects for visual appeal
-- 🎯 Modern hero section with clear call-to-action buttons
-- 🐶 High-impact backgrounds for better conversions
-- 💌 Contact form design *(non-functional by default)*
-- 📱 Mobile hamburger menu with smooth transitions
-- 🛠️ Easy to customize and adapt to your brand
+- 🐾 **Responsive & Mobile-First:** Smooth scrolling layout with an animated mobile hamburger menu.
+- 💨 **Tailwind CSS 4.x:** Clean, utility-first styling that is easy to customize.
+- 🌅 **Parallax Sections:** Background visuals for Home, Dog Walking, Overnight Care, Daycare, About, and   Contact.
+- 💰 **Clear Service & Pricing Cards:** Built-in packages, daily daycare schedules, and care comparisons.
+- 💌 **Pet Inquiry Contact Form:** Pre-styled form ready to connect with Formspree, Netlify Forms, or your own backend.
+- ⚡ **Powered by Vite:** Fast local development server and optimized production builds.
 
 ---
 
 ## 🧱 Tech Stack
 
 - **HTML5**
-- **Tailwind CSS**
-- **JavaScript**
-- **Unsplash** high-resolution photos
+- **Tailwind CSS 4.x**
+- **Vanilla JavaScript**
+- **Vite**
 
 ---
 
@@ -41,48 +39,61 @@ A modern, responsive one-page HTML template designed for dog lovers and pet care
 2. **Open a terminal** and navigate to the project folder:
    ```bash
    cd dog-sitter-download
+   ```
 
-3. **Install dependencies**
+3. **Install dependencies** (this generates the `node_modules` folder):
    ```bash
    npm install
+   ```
 
-4. **Start the development server**
+4. **Start the development server** (opens at `http://localhost:5173`):
    ```bash
    npm run dev
-   The site will open automatically at http://localhost:5173 (or a similar port).
+   ```
 
-5. **Optional build for production**
+5. **Build for production** (generates an optimized `dist/` folder):
    ```bash
    npm run build
-   This will generate a dist/ folder with optimized, production-ready files.
+   ```
 
-## 💡 Note:
-The contact form is static and does not collect messages by default.
-You can integrate it with Google Sheets, Netlify Forms, or your own backend if needed.
+---
 
-## 📁 Folder Structure Overview
+## 📁 Folder Structure
 
+```text
 Dog-Sitter-Template/
 ├── index.html              # Main landing page
+├── package.json            # Project dependencies and scripts
+├── vite.config.js          # Vite configuration
 ├── public/
 │   └── assets/             # Images and media files
-├── src/                    # CSS and JavaScript source files
-├── main.js
-└── style.css
+└── src/
+    ├── main.js             # JavaScript interactions (mobile menu, smooth scroll)
+    └── style.css           # Tailwind CSS imports and custom styles
+```
+
+---
+
+## 💡 Customization Notes
+
+1. **Contact Form Setup:** The contact form uses a placeholder [Formspree](https://formspree.io) endpoint (`action="https://formspree.iof/your-form-id"`). Replace `your-form-id` with your own Formspree ID, or connect it to Netlify Forms or a custom backend.
+
+2. **Placeholder Content:** All text, rates, and photography are for demonstration purposes only. Feel free to swap in your own branding, pricing, and images.
+
+---
 
 ## 📄 License
 
-This template is provided under a Commercial Use License.
-You may use and modify it for personal or client projects.
-Resale, redistribution, or inclusion in other template bundles is not permitted.
+This template is provided under a **Commercial Use License**.
+- ✅ **Allowed:** Use and modify for unlimited personal or client projects.
+- ❌ **Not Allowed:** Resale, redistribution, or inclusion in other template bundles or marketplaces.
 
-### 👍 Credits
+---
 
-Designed and developed by AH for simpleDesigns
-Placeholder images: Unsplash https://unsplash.com/
-Image storage: Cloudinary https://cloudinary.com/
-Icons: Font Awesome & Boxicons
-https://fontawesome.com/
-https://boxicons.com/
+## 👍 Credits
 
-Designed and developed by AH for simpleDesigns — enjoy building your next project! 🐕
+- **Design & Development:** AH for simpleDesigns
+- **Placeholder Photography:** [Unsplash](https://unsplash.com/)
+- **Icons:** [Heroicons](https://heroicons.com) / [Font Awesome](https://fontawesome.com/) & [Boxicons](https://boxicons.com/)
+
+Enjoy building your next project! 🐕

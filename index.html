@@ -1,243 +1,861 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dog Sitter</title>
+    <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body class="bg-gray-100">
+    <!-- Header / Navigation -->
+    <header
+      class="fixed top-0 left-0 z-20 w-full shadow-md bg-white/10 backdrop-blur-lg"
+    >
+      <nav class="flex items-center justify-between p-4 mx-auto max-w-7xl">
+        <!-- Logo / Home Button -->
+        <div class="flex items-center space-x-3">
+          <a href="#" class="text-gray-400 hover:text-blue-500">
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 9l9-7 9 7v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 22V12h6v10"
+              ></path>
+            </svg>
+          </a>
+          <div class="text-2xl font-bold text-black-400">Dog Sitter</div>
+        </div>
 
-<!-- Header / Navigation -->
-<header class="fixed top-0 left-0 z-20 w-full shadow-md bg-white/10 backdrop-blur-lg">
-  <nav class="flex items-center justify-between p-4 mx-auto max-w-7xl">
-    <!-- Logo / Home Button -->
-    <div class="flex items-center space-x-3">
-      <a href="#" class="text-gray-400 hover:text-blue-500">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9l9-7 9 7v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"></path>
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 22V12h6v10"></path>
-        </svg>
+        <!-- Hamburger icon (mobile) -->
+        <div class="block lg:hidden">
+          <button id="hamburger-icon" class="text-gray-800">
+            <svg
+              class="w-8 h-8 hover:text-blue-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden space-x-6 lg:flex relative">
+          <a href="#" class="text-gray-400 hover:text-blue-500">Home</a>
+          <a href="#about-me" class="text-gray-400 hover:text-blue-500"
+            >About</a
+          >
+          <a href="#contact" class="text-gray-400 hover:text-blue-500"
+            >Contact</a
+          >
+
+          <!-- Services Dropdown using Tailwind Elements -->
+          <div class="relative inline-block text-left" id="dropdown">
+            <button
+              id="dropdownBtn"
+              class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-black ring-1 ring-white/20 hover:bg-white/20"
+            >
+              Services
+              <svg
+                class="-mr-1 h-5 w-5 text-gray-400"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z"
+                />
+              </svg>
+            </button>
+            <div
+              id="dropdownMenu"
+              class="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50 opacity-0 scale-95 transform transition-all duration-150 ease-out pointer-events-none"
+            >
+              <div class="py-1">
+                <a
+                  href="#dog-walking"
+                  class="dropdown-item block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white"
+                  >Dog Walking</a
+                >
+                <a
+                  href="#dog-overnight"
+                  class="dropdown-item block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white"
+                  >Overnight Care</a
+                >
+                <a
+                  href="#dog-daycare"
+                  class="dropdown-item block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white"
+                  >Dog Daycare</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu (hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="hidden p-4 transition-all duration-300 ease-in-out rounded-lg shadow-md bg-black/70 backdrop-blur-md lg:hidden"
+      >
+        <a
+          href="#"
+          class="block py-2 text-white transition-colors duration-200 hover:text-blue-400"
+          >Home</a
+        >
+        <a
+          href="#dog-walking"
+          class="block py-2 text-white transition-colors duration-200 hover:text-blue-400"
+          >Dog Walking</a
+        >
+        <a
+          href="#dog-overnight"
+          class="block py-2 text-white transition-colors duration-200 hover:text-blue-400"
+          >Overnight Care</a
+        >
+        <a
+          href="#dog-daycare"
+          class="block py-2 text-white transition-colors duration-200 hover:text-blue-400"
+          >Dog Daycare</a
+        >
+        <a
+          href="#about-me"
+          class="block py-2 text-white transition-colors duration-200 hover:text-blue-400"
+          >About</a
+        >
+        <a
+          href="#contact"
+          class="block py-2 text-white transition-colors duration-200 hover:text-blue-400"
+          >Contact</a
+        >
+      </div>
+    </header>
+
+    <!-- Home Page Parallax Background -->
+    <div
+      class="fixed inset-0 bg-[url('/assets/hero-dogs.jpg')] bg-cover bg-center bg-fixed z-0"
+    ></div>
+
+    <!-- Hero Section -->
+    <section
+      id="hero-section"
+      class="relative z-10 flex flex-col justify-between min-h-screen px-6 py-12 text-center text-white bg-linear-to-b from-black/65 via-black/50 to-black/75"
+    >
+      <!-- Spacer for Navbar -->
+      <div class="h-12"></div>
+
+      <!-- Center Hero Content -->
+      <div class="max-w-3xl mx-auto">
+        <span
+          class="inline-block px-4 py-1.5 mb-6 text-sm font-medium tracking-wide text-amber-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full"
+        >
+          ★ 5.0 Rated • Insured & Pet First Aid Certified
+        </span>
+
+        <h1 class="text-4xl font-extrabold tracking-tight sm:text-6xl">
+          Loving, Stress-Free Care for Your Best Friend.
+        </h1>
+
+        <p class="max-w-2xl mx-auto mt-6 text-lg text-gray-200 sm:text-xl">
+          Reliable neighborhood dog walking, cozy overnight stays, and
+          small-group daycare tailored to your pup’s daily routine.
+        </p>
+
+        <div
+          class="flex flex-col items-center justify-center gap-4 mt-8 sm:flex-row"
+        >
+          <a
+            href="#contact"
+            class="w-full px-8 py-3.5 text-base font-semibold text-gray-900 transition duration-300 bg-amber-400 rounded-full sm:w-auto hover:bg-amber-300 shadow-lg"
+          >
+            Book a Free Meet & Greet
+          </a>
+          <a
+            href="#dog-walking"
+            class="w-full px-8 py-3.5 text-base font-semibold text-white transition duration-300 border border-white/40 bg-white/10 backdrop-blur-sm rounded-full sm:w-auto hover:bg-white/20"
+          >
+            Explore Services
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom Trust Bar -->
+      <div
+        class="grid max-w-4xl grid-cols-1 gap-4 pt-8 mx-auto mt-12 text-sm text-gray-200 border-t border-white/20 sm:grid-cols-3"
+      >
+        <!-- GPS Pin Icon -->
+        <div class="flex items-center justify-center gap-2">
+          <svg
+            class="w-5 h-5 text-amber-400 shrink-0"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+          <span><strong>GPS-Tracked Walks</strong> with route maps</span>
+        </div>
+
+        <!-- Camera Icon -->
+        <div class="flex items-center justify-center gap-2">
+          <svg
+            class="w-5 h-5 text-amber-400 shrink-0"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+          <span><strong>Daily Pupdates</strong> &amp; photo check-ins</span>
+        </div>
+
+        <!-- Shield Check Icon -->
+        <div class="flex items-center justify-center gap-2">
+          <svg
+            class="w-5 h-5 text-amber-400 shrink-0"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+            />
+          </svg>
+          <span><strong>Fully Insured</strong> &amp; background checked</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dog Walking Section with Built-In Parallax Background -->
+<section
+  id="dog-walking"
+  class="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-20 text-center text-white bg-fixed bg-center bg-cover"
+  style="background-image: url('/assets/walk-dog.jpg')"
+>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-linear-to-b from-black/70 via-black/60 to-black/75"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 w-full max-w-5xl mx-auto">
+    <span class="inline-block px-4 py-1.5 mb-4 text-sm font-medium tracking-wide text-amber-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
+      Daily Exercise &amp; Potty Breaks
+    </span>
+
+    <h2 class="text-4xl font-extrabold tracking-tight sm:text-5xl">
+      Tailored Neighborhood Dog Walking
+    </h2>
+
+    <p class="max-w-2xl mx-auto mt-4 text-lg text-gray-200 sm:text-xl">
+      Whether your pup needs a quick midday potty break or an hour-long adventure, every walk is paced to their energy level and routine.
+    </p>
+
+    <!-- 3 Walk Package Cards -->
+    <div class="grid grid-cols-1 gap-6 mt-12 text-left md:grid-cols-3">
+      
+      <!-- Card 1 -->
+      <div class="p-6 transition duration-300 border bg-white/10 backdrop-blur-md border-white/20 rounded-2xl hover:bg-white/15">
+        <div class="flex items-baseline justify-between">
+          <h3 class="text-xl font-bold text-white">30-Min Stroll</h3>
+          <span class="text-2xl font-extrabold text-amber-400">$25</span>
+        </div>
+        <p class="mt-1 text-xs tracking-wider text-gray-300 uppercase">Per Walk</p>
+        <p class="mt-4 text-sm text-gray-200">
+          Ideal for puppies, senior dogs, or busy workdays needing a reliable midday potty break and fresh water refill.
+        </p>
+      </div>
+
+      <!-- Card 2 (Highlighted) -->
+      <div class="relative p-6 transition duration-300 border-2 bg-white/15 backdrop-blur-md border-amber-400 rounded-2xl hover:bg-white/20">
+        <span class="absolute px-3 py-0.5 text-xs font-bold tracking-wide text-gray-900 uppercase bg-amber-400 rounded-full -top-3 right-6">
+          Most Popular
+        </span>
+        <div class="flex items-baseline justify-between">
+          <h3 class="text-xl font-bold text-white">45-Min Adventure</h3>
+          <span class="text-2xl font-extrabold text-amber-400">$32</span>
+        </div>
+        <p class="mt-1 text-xs tracking-wider text-gray-300 uppercase">Per Walk</p>
+        <p class="mt-4 text-sm text-gray-200">
+          Our signature neighborhood walk with plenty of sniff time, brisk exercise, and a live GPS route map.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="p-6 transition duration-300 border bg-white/10 backdrop-blur-md border-white/20 rounded-2xl hover:bg-white/15">
+        <div class="flex items-baseline justify-between">
+          <h3 class="text-xl font-bold text-white">60-Min Trek</h3>
+          <span class="text-2xl font-extrabold text-amber-400">$40</span>
+        </div>
+        <p class="mt-1 text-xs tracking-wider text-gray-300 uppercase">Per Walk</p>
+        <p class="mt-4 text-sm text-gray-200">
+          Extended cardio for high-energy breeds, complete with post-walk paw wipe-downs, treat rewards, and photo updates.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Bottom Action -->
+    <div class="mt-10">
+      <a
+        href="#contact"
+        class="inline-block px-8 py-3.5 text-base font-semibold text-gray-900 transition duration-300 bg-amber-400 rounded-full shadow-lg hover:bg-amber-300"
+      >
+        Book a Walk
       </a>
-      <div class="text-2xl font-bold text-black-400">Dog Sitter</div>
+      <p class="mt-3 text-xs text-gray-300">
+        +$10 per additional dog from the same household • Solo walks always available
+      </p>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Dog Overnight Care Section with Parallax Background -->
+<section
+  id="dog-overnight"
+  class="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-20 text-center text-white bg-fixed bg-center bg-cover"
+  style="background-image: url('/assets/sleeping-dog.jpg')"
+>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/75"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 w-full max-w-4xl mx-auto">
+    <span class="inline-block px-4 py-1.5 mb-4 text-sm font-medium tracking-wide text-amber-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
+      Stress-Free Vacation &amp; Travel Care
+    </span>
+
+    <h2 class="text-4xl font-extrabold tracking-tight sm:text-5xl">
+      Cozy Overnight Dog Care
+    </h2>
+
+    <p class="max-w-2xl mx-auto mt-4 text-lg text-gray-200 sm:text-xl">
+      Heading out of town? We offer loving overnight care in your home or ours — so your dog feels secure, relaxed, and never alone.
+    </p>
+
+    <!-- 2 Care Option Cards -->
+    <div class="grid grid-cols-1 gap-6 mt-12 text-left md:grid-cols-2">
+      
+      <!-- Option 1: In Your Home -->
+      <div class="p-8 transition duration-300 border bg-white/10 backdrop-blur-md border-white/20 rounded-2xl hover:bg-white/15">
+        <div class="flex items-baseline justify-between">
+          <h3 class="text-2xl font-bold text-white">In-Your-Home Sitting</h3>
+          <span class="text-2xl font-extrabold text-amber-400">$85<span class="text-sm font-normal text-gray-300">/night</span></span>
+        </div>
+        <p class="mt-3 text-sm text-gray-200">
+          Best for anxious pups or multi-pet households who prefer sticking to their exact home routine.
+        </p>
+        <ul class="mt-5 space-y-2.5 text-sm text-gray-200">
+          <li class="flex items-center gap-2">
+            <svg width="16" height="16" class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            Overnight stay (7 PM – 7 AM) + midday check-in
+          </li>
+          <li class="flex items-center gap-2">
+            <svg width="16" height="16" class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            Feeding, fresh water &amp; oral medications
+          </li>
+          <li class="flex items-center gap-2">
+            <svg width="16" height="16" class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            Mail collection, plant watering &amp; home security
+          </li>
+        </ul>
+      </div>
+
+      <!-- Option 2: Sitter's Home -->
+      <div class="p-8 transition duration-300 border bg-white/10 backdrop-blur-md border-white/20 rounded-2xl hover:bg-white/15">
+        <div class="flex items-baseline justify-between">
+          <h3 class="text-2xl font-bold text-white">Cozy Home Boarding</h3>
+          <span class="text-2xl font-extrabold text-amber-400">$75<span class="text-sm font-normal text-gray-300">/night</span></span>
+        </div>
+        <p class="mt-3 text-sm text-gray-200">
+          A true kennel-free slumber party in our warm, dog-proofed home with a fenced backyard.
+        </p>
+        <ul class="mt-5 space-y-2.5 text-sm text-gray-200">
+          <li class="flex items-center gap-2">
+            <svg width="16" height="16" class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            24/7 supervision &amp; couch cuddle privileges
+          </li>
+          <li class="flex items-center gap-2">
+            <svg width="16" height="16" class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            Daily neighborhood walks &amp; backyard playtime
+          </li>
+          <li class="flex items-center gap-2">
+            <svg width="16" height="16" class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            Morning &amp; bedtime photo updates every day
+          </li>
+        </ul>
+      </div>
+
     </div>
 
-    <!-- Hamburger icon (mobile) -->
-    <div class="block lg:hidden">
-      <button id="hamburger-icon" class="text-gray-800">
-        <svg class="w-8 h-8 hover:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
+    <!-- Bottom Action -->
+    <div class="mt-10">
+      <a
+        href="#contact"
+        class="inline-block px-8 py-3.5 text-base font-semibold text-gray-900 transition duration-300 bg-amber-400 rounded-full shadow-lg hover:bg-amber-300"
+      >
+        Schedule a Stay
+      </a>
+      <p class="mt-3 text-xs text-gray-300">
+        Complimentary Meet &amp; Greet required before all first-time overnight stays
+      </p>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Dog Daycare Section with Built-In Parallax Background -->
+<section
+  id="dog-daycare"
+  class="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-20 text-center text-white bg-fixed bg-center bg-cover"
+  style="background-image: url('/assets/dogs-playground.jpg')"
+>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/75"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 w-full max-w-5xl mx-auto">
+    <span class="inline-block px-4 py-1.5 mb-4 text-sm font-medium tracking-wide text-amber-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
+      Small-Group Play &amp; Enrichment
+    </span>
+
+    <h2 class="text-4xl font-extrabold tracking-tight sm:text-5xl">
+      Structured, Joyful Dog Daycare
+    </h2>
+
+    <p class="max-w-2xl mx-auto mt-4 text-lg text-gray-200 sm:text-xl">
+      A safe, cage-free environment where small groups of temperament-matched pups play, socialize, and recharge while you're away for the day.
+    </p>
+
+    <!-- A Day at Daycare (3-Step Rhythm) -->
+    <div class="grid grid-cols-1 gap-5 mt-12 text-left md:grid-cols-3">
+      
+      <div class="p-6 border bg-white/10 backdrop-blur-md border-white/20 rounded-2xl">
+        <span class="text-xs font-bold tracking-wider uppercase text-amber-400">8:00 AM – 12:00 PM</span>
+        <h3 class="mt-1 text-lg font-bold text-white">Morning Yard Romps</h3>
+        <p class="mt-2 text-sm text-gray-200">
+          Supervised group play, fetch sessions, and outdoor socialization in our secure, shaded backyard.
+        </p>
+      </div>
+
+      <div class="p-6 border bg-white/10 backdrop-blur-md border-white/20 rounded-2xl">
+        <span class="text-xs font-bold tracking-wider uppercase text-amber-400">12:00 PM – 2:00 PM</span>
+        <h3 class="mt-1 text-lg font-bold text-white">Lunch &amp; Quiet Naptime</h3>
+        <p class="mt-2 text-sm text-gray-200">
+          Individual feeding followed by cozy crate-free rest on orthopedic beds so pups never get overtired.
+        </p>
+      </div>
+
+      <div class="p-6 border bg-white/10 backdrop-blur-md border-white/20 rounded-2xl">
+        <span class="text-xs font-bold tracking-wider uppercase text-amber-400">2:00 PM – 6:00 PM</span>
+        <h3 class="mt-1 text-lg font-bold text-white">Enrichment &amp; Wind-Down</h3>
+        <p class="mt-2 text-sm text-gray-200">
+          Treat puzzles, gentle one-on-one affection, and a quick brush-out before pickup time.
+        </p>
+      </div>
+
     </div>
 
-    <!-- Desktop Navigation -->
-    <div class="hidden space-x-6 lg:flex relative">
-      <a href="#" class="text-gray-400 hover:text-blue-500">Home</a>
-      <a href="#about-me" class="text-gray-400 hover:text-blue-500">About</a>
-      <a href="#contact" class="text-gray-400 hover:text-blue-500">Contact</a>
-
-      <!-- Services Dropdown using Tailwind Elements -->
-    <div class="relative inline-block text-left" id="dropdown">
-    <button id="dropdownBtn"
-      class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-black ring-1 ring-white/20 hover:bg-white/20"
-    >
-      Services
-      <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z"/>
-      </svg>
-    </button>
-    <div id="dropdownMenu"
-      class="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50
-             opacity-0 scale-95 transform transition-all duration-150 ease-out pointer-events-none"
-    >
-      <div class="py-1">
-        <a href="#dog-walking" class="dropdown-item block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Dog Walking</a>
-        <a href="#dog-overnight" class="dropdown-item block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Overnight Care</a>
-        <a href="#dog-daycare" class="dropdown-item block px-4 py-2 text-sm text-gray-300 hover:bg-white/10 hover:text-white">Dog Daycare</a>
+    <!-- Compact Pricing Bar -->
+    <div class="grid max-w-3xl grid-cols-1 gap-4 p-6 mx-auto mt-8 border bg-black/40 backdrop-blur-md border-white/20 rounded-2xl sm:grid-cols-3">
+      <div>
+        <div class="text-sm text-gray-300">Half-Day (Up to 5 hrs)</div>
+        <div class="mt-1 text-2xl font-extrabold text-amber-400">$30</div>
+      </div>
+      <div class="sm:border-x sm:border-white/15">
+        <div class="text-sm text-gray-300">Full-Day (Up to 10 hrs)</div>
+        <div class="mt-1 text-2xl font-extrabold text-amber-400">$45</div>
+      </div>
+      <div>
+        <div class="text-sm text-gray-300">5-Day Play Pass</div>
+        <div class="mt-1 text-2xl font-extrabold text-amber-400">$200 <span class="text-xs font-normal text-gray-300">(Save $25)</span></div>
       </div>
     </div>
-  </div>
+
+    <!-- Bottom Action -->
+    <div class="mt-10">
+      <a
+        href="#contact"
+        class="inline-block px-8 py-3.5 text-base font-semibold text-gray-900 transition duration-300 bg-amber-400 rounded-full shadow-lg hover:bg-amber-300"
+      >
+        Schedule a Playday
+      </a>
+      <p class="mt-3 text-xs text-gray-300">
+        All dogs must be up-to-date on vaccinations • Temperament trial included with Meet &amp; Greet
+      </p>
     </div>
-  </nav>
-
-<!-- Mobile Menu (hidden by default) -->
-  <div id="mobile-menu" class="hidden p-4 transition-all duration-300 ease-in-out rounded-lg shadow-md bg-black/70 backdrop-blur-md lg:hidden">
-  <a href="#" class="block py-2 text-white transition-colors duration-200 hover:text-blue-400">Home</a>
-  <a href="#dog-walking" class="block py-2 text-white transition-colors duration-200 hover:text-blue-400">Dog Walking</a>
-  <a href="#dog-overnight" class="block py-2 text-white transition-colors duration-200 hover:text-blue-400">Overnight Care</a>
-  <a href="#dog-daycare" class="block py-2 text-white transition-colors duration-200 hover:text-blue-400">Dog Daycare</a>
-    <a href="#about-me" class="block py-2 text-white transition-colors duration-200 hover:text-blue-400">About</a>
-  <a href="#contact" class="block py-2 text-white transition-colors duration-200 hover:text-blue-400">Contact</a>
-</div>
-</header>
-
-  <!-- Home Page Parallax Background -->
-  <div class="fixed inset-0 bg-[url('/assets/hero-dogs.jpg')] bg-cover bg-center bg-fixed z-0 opacity-70"></div>
-  <!-- Hero Section -->
-  <section id="hero-section" class="relative z-10 flex flex-col items-center justify-center min-h-screen text-center text-white bg-black/50">
-    <h1 class="text-5xl font-bold">Your Trusted Dog Sitter</h1>
-    <p class="mt-4 text-xl">Providing the best care for your furry friends while you're away!</p>
-    <a href="#dog-walking" class="px-6 py-3 mt-6 text-lg text-white transition duration-300 bg-blue-600 rounded-full hover:bg-blue-700">Learn More</a>
-  </section>
-
-<!-- Dog Walking Section with Built-In Parallax Background -->
-<section id="dog-walking" class="relative z-10 flex flex-col items-center justify-center min-h-screen text-center text-white bg-fixed bg-center bg-cover" style="background-image: url('/assets/walk-dog.jpg');">
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black/50"></div>
-  <!-- Content -->
-  <div class="relative z-10 max-w-3xl px-6">
-    <h2 class="text-5xl font-bold">Dog Walking</h2>
-    <p class="mt-4 text-xl">
-      Whether it’s a quick potty break or an hour-long adventure, we’re here to make sure your pup gets the attention and exercise they crave — even when you're busy.
-    </p>
-    <a href="#contact" class="inline-block px-6 py-3 mt-6 text-lg text-white transition duration-300 bg-blue-600 rounded-full hover:bg-blue-700">
-      Book a Walk
-    </a>
   </div>
 </section>
 
-  <!-- Dog Overnight Care Section with Parallax Background -->
-<section id="dog-overnight" class="relative z-10 flex flex-col items-center justify-center min-h-screen text-center text-white bg-fixed bg-center bg-cover" style="background-image: url('/assets/sleeping-dog.jpg');">
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black/50"></div>
-  <!-- Content -->
-  <div class="relative z-10 max-w-3xl px-6">
-    <h2 class="text-5xl font-bold">Overnight Dog Care</h2>
-    <p class="mt-4 text-xl">
-      Heading out of town? We offer loving overnight care in your home or ours — so your dog feels secure, relaxed, and never alone. Whether it's one night or a week away, your pup is in good hands.
-    </p>
-    <a href="#contact" class="inline-block px-6 py-3 mt-6 text-lg text-white transition duration-300 bg-blue-600 rounded-full hover:bg-blue-700">
-      Schedule a Stay
-    </a>
-  </div>
-</section>
 
-<!-- Dog Daycare Section with Built-In Parallax Background -->
-<section id="dog-daycare" class="relative z-10 flex flex-col items-center justify-center min-h-screen text-center text-white bg-fixed bg-center bg-cover" style="background-image: url('assets/dogs-playground.jpg');">
-  <div class="absolute inset-0 bg-black/50"></div>
-  <div class="relative z-10 max-w-3xl px-6">
-    <h2 class="text-5xl font-bold">Dog Daycare</h2>
-    <p class="mt-4 text-xl">Our dog daycare offers a fun, safe place for pups to play, socialize, and stay active while their owners are away for the day.</p>
-    <a href="#contact" class="inline-block px-6 py-3 mt-6 text-lg text-white transition duration-300 bg-blue-600 rounded-full hover:bg-blue-700">Schedule a Playday</a>
-  </div>
-</section>
-
-<!-- About Me Section -->
-<section id="about-me" class="relative z-10 flex items-center justify-center min-h-screen text-white bg-fixed bg-center bg-cover" style="background-image: url('/assets/concreteshade.jpg');">
+    <!-- About Me Section -->
+<section
+  id="about-me"
+  class="relative z-10 flex items-center justify-center min-h-screen px-6 py-20 text-white bg-fixed bg-center bg-cover"
+  style="background-image: url('/assets/concreteshade.jpg')"
+>
   <!-- Overlay -->
-  <div class="absolute inset-0 bg-black/50"></div>
+  <div class="absolute inset-0 bg-linear-to-b from-black/75 via-black/65 to-black/80"></div>
+
   <!-- Content Section -->
-  <div class="relative z-10 flex flex-col items-center px-6 py-12 max-w-7xl lg:flex-row">
-    <!-- Left Side (Image) -->
-    <div class="w-full mb-8 lg:w-1/2 lg:mb-0 lg:pr-8">
-      <img src="/assets/nature.jpg" alt="About Me Image" class="w-full h-auto rounded-lg shadow-xl" />
+  <div class="relative z-10 flex flex-col items-center w-full max-w-6xl mx-auto lg:flex-row lg:gap-12">
+    
+    <!-- Left Side (Image with Floating Badge) -->
+    <div class="relative w-full mb-10 lg:w-5/12 lg:mb-0">
+      <img
+        src="/assets/nature.jpg"
+        alt="Maya Lin smiling outdoors with a happy dog"
+        class="object-cover w-full h-[420px] sm:h-[480px] rounded-2xl shadow-2xl border border-white/15"
+      />
+      <!-- Floating Credential Card -->
+      <div class="absolute p-4 border shadow-xl -bottom-5 left-4 right-4 sm:left-6 sm:right-auto bg-black/75 backdrop-blur-md border-white/20 rounded-xl">
+        <div class="flex items-center gap-3">
+          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-400/20 text-amber-400 shrink-0">
+            <svg width="20" height="20" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <div class="text-left">
+            <div class="text-sm font-bold text-white">Red Cross Pet First Aid</div>
+            <div class="text-xs text-gray-300">Certified &amp; Background Checked</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- Right Side (Text) -->
-    <div class="w-full text-center lg:w-1/2 lg:text-left lg:pl-8">
-      <h2 class="mb-6 text-5xl font-bold">About Me</h2>
-      <p class="mb-4 text-xl">
-        Hi! I'm a devoted dog caregiver who loves building trust and companionship with every pup I meet. Whether it’s feeding, walking, or playtime, I focus on making dogs feel safe, loved, and happy.
+
+    <!-- Right Side (Text & Credentials) -->
+    <div class="w-full text-center lg:w-7/12 lg:text-left">
+      <span class="inline-block px-4 py-1.5 mb-4 text-sm font-medium tracking-wide text-amber-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
+        Meet Your Sitter
+      </span>
+
+      <h2 class="text-4xl font-extrabold tracking-tight sm:text-5xl">
+        Hi, I’m Maya — Your Pup’s New Best Friend.
+      </h2>
+
+      <p class="mt-6 text-lg leading-relaxed text-gray-200">
+        I started caring for neighborhood dogs over six years ago with one simple goal: to give pet parents total peace of mind while treating every dog like family. Whether your pup is a high-energy trail buddy or a shy senior who needs gentle patience, I adapt every visit to their comfort level.
       </p>
-      <p class="mb-6 text-xl">
-        When I’m not caring for dogs, I’m usually hiking, studying canine behavior, or volunteering at local shelters. Let’s connect—I’d love to meet your furry companion!
+
+      <p class="mt-4 text-base leading-relaxed text-gray-300">
+        When I’m not out on neighborhood walks or hosting slumber parties, you’ll find me hiking local trails, studying positive-reinforcement canine behavior, and volunteering at our local shelter.
       </p>
-      <a href="#contact" class="inline-block px-6 py-3 mt-6 text-lg text-white transition duration-300 bg-blue-600 rounded-full hover:bg-blue-700">
-        Get in Touch
-      </a>
+
+      <!-- 3 Quick Experience Stats -->
+      <div class="grid grid-cols-3 gap-4 py-6 my-8 border-y border-white/15">
+        <div>
+          <div class="text-2xl font-extrabold sm:text-3xl text-amber-400">6+ Yrs</div>
+          <div class="mt-1 text-xs text-gray-300 sm:text-sm">Professional Care</div>
+        </div>
+        <div>
+          <div class="text-2xl font-extrabold sm:text-3xl text-amber-400">140+</div>
+          <div class="mt-1 text-xs text-gray-300 sm:text-sm">Happy Local Pups</div>
+        </div>
+        <div>
+          <div class="text-2xl font-extrabold sm:text-3xl text-amber-400">100%</div>
+          <div class="mt-1 text-xs text-gray-300 sm:text-sm">5-Star Reviews</div>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="flex flex-col items-center gap-4 sm:flex-row lg:justify-start justify-center">
+        <a
+          href="#contact"
+          class="inline-block px-8 py-3.5 text-base font-semibold text-gray-900 transition duration-300 bg-amber-400 rounded-full shadow-lg hover:bg-amber-300"
+        >
+          Book a Free Meet &amp; Greet
+        </a>
+        <span class="text-sm text-gray-300">
+          No obligation • Takes 20 minutes
+        </span>
+      </div>
     </div>
+
   </div>
 </section>
 
-  <!-- Contact Section with Parallax Background -->
-<section id="contact" class="relative z-10 flex items-center justify-center min-h-screen text-white bg-fixed bg-center bg-cover" style="background-image: url('/assets/staring-dogs.jpg');">
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black/50"></div>
-  <!-- Content Wrapper -->
-  <div class="relative z-10 w-full max-w-5xl px-6 py-12 text-center">
-    <h2 class="mb-4 text-5xl font-bold">Get in Touch</h2>
-    <p class="mb-10 text-xl">Have questions or ready to book? We’d love to hear from you!</p>
 
-    <div class="grid items-start grid-cols-1 gap-8 text-left md:grid-cols-2">
-      <!-- Contact Info -->
-      <div class="space-y-6">
-        <div class="flex items-center space-x-4">
-          <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M16 8c0-2.21-1.79-4-4-4S8 5.79 8 8s1.79 4 4 4 4-1.79 4-4z" />
-            <path d="M12 14c-4.418 0-8 1.79-8 4v2h16v-2c0-2.21-3.582-4-8-4z" />
-          </svg>
-          <span>Email: <a href="mailto:contact@dogsitters.com" class="underline hover:text-blue-300">contact@dogsitters.com</a></span>
+    <!-- Contact Section with Parallax Background -->
+<section
+  id="contact"
+  class="relative z-10 flex items-center justify-center min-h-screen px-6 py-20 text-white bg-fixed bg-center bg-cover"
+  style="background-image: url('/assets/staring-dogs.jpg')"
+>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-linear-to-b from-black/75 via-black/65 to-black/80"></div>
+
+  <!-- Content Wrapper -->
+  <div class="relative z-10 w-full max-w-5xl mx-auto text-center">
+    <span class="inline-block px-4 py-1.5 mb-4 text-sm font-medium tracking-wide text-amber-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
+      Book a Free Meet &amp; Greet
+    </span>
+
+    <h2 class="text-4xl font-extrabold tracking-tight sm:text-5xl">
+      Let’s Meet Your Pup!
+    </h2>
+
+    <p class="max-w-2xl mx-auto mt-4 mb-12 text-lg text-gray-200 sm:text-xl">
+      Have questions about scheduling, special needs, or rates? Send a quick note below and I’ll get back to you within a few hours.
+    </p>
+
+    <div class="grid items-start grid-cols-1 gap-10 text-left md:grid-cols-12">
+      
+      <!-- Left Column: Contact Info & Hours (5 cols) -->
+      <div class="p-8 space-y-6 border md:col-span-5 bg-white/10 backdrop-blur-md border-white/20 rounded-2xl">
+        <h3 class="text-xl font-bold text-white">Direct Contact</h3>
+        <p class="text-sm text-gray-300">
+          Prefer to text or call? Feel free to reach out directly to check availability for your dates.
+        </p>
+
+        <div class="space-y-4 pt-2 text-sm">
+          <!-- Email -->
+          <div class="flex items-center gap-3.5">
+            <div class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-400/20 text-amber-400 shrink-0">
+              <svg width="20" height="20" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div>
+              <div class="text-xs text-gray-400">Email</div>
+              <a href="mailto:hello@happytailscare.com" class="font-medium text-white hover:text-amber-300">
+                hello@happytailscare.com
+              </a>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="flex items-center gap-3.5">
+            <div class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-400/20 text-amber-400 shrink-0">
+              <svg width="20" height="20" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </div>
+            <div>
+              <div class="text-xs text-gray-400">Call or Text</div>
+              <a href="tel:+15552345678" class="font-medium text-white hover:text-amber-300">
+                (555) 234-5678
+              </a>
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="flex items-center gap-3.5">
+            <div class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-400/20 text-amber-400 shrink-0">
+              <svg width="20" height="20" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div>
+              <div class="text-xs text-gray-400">Service Area</div>
+              <div class="font-medium text-white">Downtown &amp; Surrounding Neighborhoods</div>
+            </div>
+          </div>
         </div>
-        <div class="flex items-center space-x-4">
-          <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M3 5h2l3.6 7.59-1.35 2.44A1 1 0 008 17h10v-2H8.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45a1 1 0 00.92-.61l3.24-7.24A.998.998 0 0019 4H6.21l-.94-2H1v2h2l3.6 7.59L5.25 13A1 1 0 006 15h12v2H6a2 2 0 01-2-2v-1.42L3 5z" />
-          </svg>
-          <span>Phone: <a href="tel:+1234567890" class="underline hover:text-blue-300">(123) 456-7890</a></span>
-        </div>
-        <div class="flex items-center space-x-4">
-          <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M17.657 16.657L13.414 12.414a4 4 0 00-5.657 0L6 14.172V4a1 1 0 00-2 0v16a1 1 0 001 1h16a1 1 0 000-2H9.828l1.758-1.757a2 2 0 012.828 0l4.243 4.243a1 1 0 001.414-1.414z" />
-          </svg>
-          <span>Location: City, Province</span>
+
+        <!-- Hours Box -->
+        <div class="pt-4 border-t border-white/15">
+          <div class="text-xs font-semibold tracking-wider uppercase text-amber-400">Care Hours</div>
+          <p class="mt-1 text-sm text-gray-200">
+            Mon – Sun: 7:00 AM – 8:00 PM<br />
+            <span class="text-xs text-gray-400">24/7 supervision included for Overnight Stays</span>
+          </p>
         </div>
       </div>
-      <!-- Transparent Contact Form -->
-      <form action="https://formspree.io/f/your-form-id" method="POST" class="p-8 space-y-6 shadow-md backdrop-blur-sm bg-white/10 rounded-xl">
-        <div>
-          <label for="name" class="block mb-1 text-sm font-semibold">Your Name</label>
-          <input type="text" name="name" id="name" required class="w-full px-4 py-2 text-black placeholder-gray-600 rounded bg-white/80 focus:outline-none">
+
+      <!-- Right Column: Pet Inquiry Form (7 cols) -->
+      <form
+        action="https://formspree.io/f/your-form-id"
+        method="POST"
+        class="p-8 space-y-5 border shadow-xl md:col-span-7 backdrop-blur-md bg-white/10 border-white/20 rounded-2xl"
+      >
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div>
+            <label for="name" class="block mb-1.5 text-sm font-medium text-gray-200">Your Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Jane Doe"
+              required
+              class="w-full px-4 py-2.5 text-gray-900 placeholder-gray-500 rounded-lg bg-white/90 focus:outline-none focus:ring-2 focus:ring-amber-400"
+            />
+          </div>
+          <div>
+            <label for="email" class="block mb-1.5 text-sm font-medium text-gray-200">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="jane@example.com"
+              required
+              class="w-full px-4 py-2.5 text-gray-900 placeholder-gray-500 rounded-lg bg-white/90 focus:outline-none focus:ring-2 focus:ring-amber-400"
+            />
+          </div>
         </div>
-        <div>
-          <label for="email" class="block mb-1 text-sm font-semibold">Email</label>
-          <input type="email" name="email" id="email" required class="w-full px-4 py-2 text-black placeholder-gray-600 rounded bg-white/80 focus:outline-none">
+
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div>
+            <label for="pet-info" class="block mb-1.5 text-sm font-medium text-gray-200">Pup's Name &amp; Breed</label>
+            <input
+              type="text"
+              name="pet_info"
+              id="pet-info"
+              placeholder="e.g., Barnaby, Golden Retriever"
+              required
+              class="w-full px-4 py-2.5 text-gray-900 placeholder-gray-500 rounded-lg bg-white/90 focus:outline-none focus:ring-2 focus:ring-amber-400"
+            />
+          </div>
+          <div>
+            <label for="service" class="block mb-1.5 text-sm font-medium text-gray-200">Service Needed</label>
+            <select
+              name="service"
+              id="service"
+              class="w-full px-4 py-2.5 text-gray-900 rounded-lg bg-white/90 focus:outline-none focus:ring-2 focus:ring-amber-400"
+            >
+              <option value="Meet & Greet">Free Meet &amp; Greet</option>
+              <option value="Dog Walking">Dog Walking</option>
+              <option value="Overnight Care">Overnight Care</option>
+              <option value="Dog Daycare">Dog Daycare</option>
+            </select>
+          </div>
         </div>
+
         <div>
-          <label for="message" class="block mb-1 text-sm font-semibold">Message</label>
-          <textarea name="message" id="message" rows="4" required class="w-full px-4 py-2 text-black placeholder-gray-600 rounded bg-white/80 focus:outline-none"></textarea>
+          <label for="message" class="block mb-1.5 text-sm font-medium text-gray-200">Dates &amp; Details</label>
+          <textarea
+            name="message"
+            id="message"
+            rows="3"
+            placeholder="Tell me a bit about your pup's routine, energy level, and preferred dates..."
+            required
+            class="w-full px-4 py-2.5 text-gray-900 placeholder-gray-500 rounded-lg bg-white/90 focus:outline-none focus:ring-2 focus:ring-amber-400"
+          ></textarea>
         </div>
-        <button type="submit" class="w-full px-6 py-3 text-white transition duration-300 bg-blue-600 rounded-full hover:bg-blue-700">
-          Send Message
+
+        <button
+          type="submit"
+          class="w-full px-6 py-3.5 text-base font-semibold text-gray-900 transition duration-300 bg-amber-400 rounded-full shadow-lg hover:bg-amber-300"
+        >
+          Send Inquiry
         </button>
       </form>
+
     </div>
   </div>
 </section>
 
-  <!-- Footer Section -->
-<footer class="relative z-10 py-10 text-white bg-gray-800 ">
-  <div class="grid max-w-6xl grid-cols-1 gap-8 px-6 mx-auto text-center md:grid-cols-2 lg:grid-cols-3 md:text-left">
-    <!-- About Section -->
-    <div>
-      <h3 class="mb-3 text-2xl font-bold">Dog Sitter</h3>
-      <p class="text-sm text-gray-300">
-        Reliable care for your furry friends. Dog walking, overnight stays, and more — all with love and trust.
-      </p>
-    </div>
-    <!-- Hours of Operation -->
-    <div>
-      <h4 class="mb-3 text-xl font-semibold">Hours of Operation</h4>
-      <ul class="space-y-1 text-sm text-gray-200">
-        <li>Mon–Fri: 8:00 AM – 8:00 PM</li>
-        <li>Saturday: 9:00 AM – 6:00 PM</li>
-        <li>Sunday: 10:00 AM – 4:00 PM</li>
-      </ul>
-    </div>
-    <!-- Quick Links -->
-    <div>
-      <h4 class="mb-3 text-xl font-semibold">Quick Links</h4>
-      <ul class="space-y-2 text-sm">
-        <li><a href="#dog-walking" class="text-gray-300 hover:underline hover:text-white">Dog Walking</a></li>
-        <li><a href="#dog-overnight" class="text-gray-300 hover:underline hover:text-white">Overnight Care</a></li>
-        <li><a href="#dog-daycare" class="text-gray-300 hover:underline hover:text-white">Dog Daycare</a></li>
-      </ul>
-    </div>
-  </div>
-  <!-- Bottom Note -->
-  <div class="mt-10 text-sm text-center text-gray-400">
-    © 2025 Dog Sitter. All rights reserved.
-  </div>
-</footer>
-    
+
+    <!-- Footer Section -->
+    <footer class="relative z-10 py-10 text-white bg-gray-800">
+      <div
+        class="grid max-w-6xl grid-cols-1 gap-8 px-6 mx-auto text-center md:grid-cols-2 lg:grid-cols-3 md:text-left"
+      >
+        <!-- About Section -->
+        <div>
+          <h3 class="mb-3 text-2xl font-bold">Dog Sitter</h3>
+          <p class="text-sm text-gray-300">
+            Reliable care for your furry friends. Dog walking, overnight stays,
+            and more — all with love and trust.
+          </p>
+        </div>
+        <!-- Hours of Operation -->
+        <div>
+          <h4 class="mb-3 text-xl font-semibold">Hours of Operation</h4>
+          <ul class="space-y-1 text-sm text-gray-200">
+            <li>Mon–Fri: 8:00 AM – 8:00 PM</li>
+            <li>Saturday: 9:00 AM – 6:00 PM</li>
+            <li>Sunday: 10:00 AM – 4:00 PM</li>
+          </ul>
+        </div>
+        <!-- Quick Links -->
+        <div>
+          <h4 class="mb-3 text-xl font-semibold">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a
+                href="#dog-walking"
+                class="text-gray-300 hover:underline hover:text-white"
+                >Dog Walking</a
+              >
+            </li>
+            <li>
+              <a
+                href="#dog-overnight"
+                class="text-gray-300 hover:underline hover:text-white"
+                >Overnight Care</a
+              >
+            </li>
+            <li>
+              <a
+                href="#dog-daycare"
+                class="text-gray-300 hover:underline hover:text-white"
+                >Dog Daycare</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Bottom Note -->
+      <div class="mt-10 text-sm text-center text-gray-400">
+        © 2025 Dog Sitter. All rights reserved.
+      </div>
+    </footer>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
